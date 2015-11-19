@@ -2,10 +2,11 @@
 # encoding: utf-8
 require 'rainbow/ext/string'
 class Depend
-  attr_reader :hash, :dirs, :lib, :inc, :lib_to_s, :inc_to_s
+  attr_reader :hash, :dirs, :lib, :inc, :lib_to_s, :inc_to_s, :flags
 
-  def initialize(hash, order = nil)
+  def initialize(hash, order = nil, flags = nil)
     @dirs, @lib, @inc = [], [], []
+    @flags = flags
     @hash = hash
     append(hash, order)
   end

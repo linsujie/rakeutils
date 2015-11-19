@@ -1,0 +1,22 @@
+load('~/.galplib_config')
+
+GALPDIRS = { source: '/home/linsj/MCGAL/galprop_moskalenko_v3/galprop-55.1.2713/',
+  galp: "/home/linsj/MCGAL/galp#{GALPVERSION.to_s == 'V55' ? 55 : nil }" ,
+  packages: '/home/linsj/MCGAL/package/' }
+
+packages = { 'Healpix_3.20/src/cxx/generic_gcc' =>  %w(healpix_cxx cxxsupport fftpack) }
+if GALPVERSION.to_s == 'V55' then
+  packages.merge!('galtoolslib-0.1.627' => %w(galstruct nuclei processes random skymap utils))
+end
+PACKAGES = packages
+
+extra = { '/usr' => %w(gsl gslcblas m gfortran),
+          nil => %w(CCfits CLHEP cfitsio)
+}
+
+extra.merge!(nil => %w(galpwrap))
+
+extra.merge!(nil => %w(xerces-c)) if GALPVERSION.to_s == 'V55'
+EXTRA = extra
+
+# '/opt/intel/Compiler/11.1/046/lib/intel64': %w(ifport ifcoremt imf svml ipgo iomp5 irc pthread irc_s dl)

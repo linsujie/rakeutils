@@ -9,4 +9,4 @@ deps.merge!(EXTRA)
 
 order = %w(galpwrap galprop CCfits CLHEP cfitsio)
 
-DEPEND = Depend.new(deps, order)
+DEPEND = Depend.new(deps, order, GALP_DEF_FLAG)
