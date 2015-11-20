@@ -12,6 +12,6 @@ deps = { "#{GALPDIRS[:galp]}" => %w(galprop),
 }
 deps.merge!(EXTRA)
 
-order = %w(galpwrap galprop CCfits CLHEP cfitsio)
+order = %w(galpwrapper galprop CCfits CLHEP cfitsio)
 
 DEPEND = Depend.new(deps, order, GALP_DEF_FLAG)

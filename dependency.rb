@@ -30,7 +30,7 @@ class Depend
   private
 
   def expand_path(hash)
-    hash.each.map { |path, val| [File.expand_path(path), val] }.to_h
+    hash.each.map { |path, val| [path && File.expand_path(path), val] }.to_h
   end
 
   def readhash(hash, base = nil)
