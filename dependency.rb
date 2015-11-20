@@ -12,6 +12,8 @@ class Depend
   end
 
   def append(hash, order = nil)
+    hash = expand_path(hash)
+
     @hash.merge!(hash)
     readhash(hash)
 
@@ -26,6 +28,10 @@ class Depend
   end
 
   private
+
+  def expand_path(hash)
+    hash.each.map { |path, val| [File.expand_path(path), val] }.to_h
+  end
 
   def readhash(hash, base = nil)
     return unless hash.is_a?(Hash)
