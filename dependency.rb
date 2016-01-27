@@ -6,8 +6,8 @@ class Depend
 
   def initialize(hash, order = nil, flags = nil)
     @dirs, @lib, @inc = [], [], []
+    @hash = {}
     @flags = flags
-    @hash = hash
     append(hash, order)
   end
 
